@@ -24,6 +24,11 @@ async def homie(ctx):
   await ctx.channel.send("is here")
 
 @bot.command()
+async def upgrade(ctx):
+  await ctx.channel.send("good night...")
+  sys.exit(0)
+
+@bot.command()
 async def chatspam(ctx):
   global spam_chat_mode
   if spam_chat_mode:
@@ -36,13 +41,10 @@ async def chatspam(ctx):
 @bot.event
 async def on_message(message):
   if message.author == bot.user:
-    return
-  if message.content == "sleep":
-    sys.exit("bye")
+    return 0
   if spam_chat_mode:
     list = message.content.lower().split(" ")
     await message.channel.send(random.choice(list))
-
   await bot.process_commands(message)
 
 bot.run(os.environ["TOKEN"])

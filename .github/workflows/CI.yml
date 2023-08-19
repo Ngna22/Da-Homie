@@ -6,6 +6,10 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,5 +22,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: entering Da Hood !
         run: |
-          python3 main.py || exit
+          while true
+          do
+          python3 main.py
           kill $!
+          done
