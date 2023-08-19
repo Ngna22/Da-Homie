@@ -34,20 +34,21 @@ async def upgrade(ctx):
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
 async def chatspam(interaction):
-  global spam_chat_mode, spam_chat_mode
+  global spam_chat_mode, spam_chat_chan
   if spam_chat_mode == True:
     spam_chat_mode = False
     await interaction.response.send_message("chat spam mode is now off")
   elif spam_chat_mode == False:
     spam_chat_mode = True
-    spam_chat_mode = interaction.channel
+    spam_chat_chan = interaction.channel
     await interaction.response.send_message(f"chat spam mode is now on for {spam_chat_mode.name}")
 
 @bot.event
 async def on_message(message):
   if message.author == bot.user:
     return 0
-  if spam_chat_mode:
+  global spam_chat_mode, spam_chat_chan
+  if spam_chat_mode and spam_chat_chan == message.channel:
     list = message.content.lower().split(" ")
     await message.channel.send(random.choice(list))
   await bot.process_commands(message)
