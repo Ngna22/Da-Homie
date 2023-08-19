@@ -1,6 +1,6 @@
 import os, sys
 import discord
-import random
+import random, asyncio
 from discord.ext import commands
 
 prefix = "da "
@@ -17,6 +17,8 @@ spam_chat_mode = False
 async def on_ready():
   os.system("clear")
   print(f"da homie is logged as {bot.user}")
+  await asyncio.sleep(10)
+  await bot.tree.sync()
   for guild in bot.guilds:
     print(f"in: {guild.name}\server id: {guild.id}")
 
@@ -29,15 +31,15 @@ async def upgrade(ctx):
   await ctx.channel.send("good night...")
   sys.exit(0)
 
-@bot.command()
-async def chatspam(ctx):
+@bot.tree.command(name="chatspam", description="automated chat spam..!")
+async def chatspam(interaction):
   global spam_chat_mode
-  if spam_chat_mode:
-    spam_chat_mode = Flase
-    await ctx.reply("chat spam mode is now off")
-  else:
+  if spam_chat_mode == True:
+    spam_chat_mode = False
+    await interaction.response.send_message("chat spam mode is now off")
+  elif spam_chat_mode == False:
     spam_chat_mode = True
-    await ctx.reply("chat spam mode is now on")
+    await interaction.response.send_message("chat spam mode is now on")
 
 @bot.event
 async def on_message(message):
