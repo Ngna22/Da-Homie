@@ -22,8 +22,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: entering Da Hood !
         run: |
-          while true
-          do
-          python3 main.py
+          bash main.sh &
+          sleep $(( 58 * 60 ))
           kill $!
-          done
