@@ -32,6 +32,17 @@ async def upgrade(ctx):
   await ctx.channel.send("initializing update and reboot...")
   sys.exit(0)
 
+@bot.command()
+async def cat(ctx, spam:int = None):
+  def ctaget():
+    data = requests.get("https://api.thecatapi.com/v1/images/search")
+    return str(data.json()[0]['url'])
+  if spam and spam <= 10:
+    for n in range(spam):
+      await ctx.channel.send(content=ctaget())
+    return
+  await ctx.reply(content=ctaget())
+
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
 async def chatspam(interaction):
   global spam_chat_mode, spam_chat_chan
