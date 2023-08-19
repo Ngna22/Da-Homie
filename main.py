@@ -11,7 +11,7 @@ bot = commands.Bot(prefix, intents=intents, activity=activity, status=None)
 
 # The Turn On/Off button default mode
 global spam_chat_mode, spam_chat_chan
-spam_chat_mode = None
+spam_chat_chan = None
 spam_chat_mode = False
 
 @bot.event
@@ -41,7 +41,7 @@ async def chatspam(interaction):
   elif spam_chat_mode == False:
     spam_chat_mode = True
     spam_chat_chan = interaction.channel
-    await interaction.response.send_message(f"chat spam mode is now on for {spam_chat_mode.name}")
+    await interaction.response.send_message("chat spam mode is now on")
 
 @bot.event
 async def on_message(message):
