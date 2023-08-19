@@ -35,7 +35,6 @@ async def chatspam(ctx):
 
 @bot.event
 async def on_message(message):
-  await bot.process_commands(message)
   if message.author == bot.user:
     return
   if message.content == "sleep":
@@ -43,5 +42,7 @@ async def on_message(message):
   if spam_chat_mode:
     list = message.content.lower().split(" ")
     await message.channel.send(random.choice(list))
+
+  await bot.process_commands(message)
 
 bot.run(os.environ["TOKEN"])
