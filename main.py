@@ -1,6 +1,7 @@
 import os, sys
 import discord
 import random, asyncio
+import requests
 from discord.ext import commands
 
 prefix = "da "
