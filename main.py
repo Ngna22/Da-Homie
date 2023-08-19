@@ -1,5 +1,6 @@
 import os, sys
 import discord
+import random
 from discord.ext import commands
 
 prefix = "da "
