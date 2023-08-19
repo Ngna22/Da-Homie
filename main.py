@@ -29,7 +29,7 @@ async def homie(ctx):
 
 @bot.command()
 async def upgrade(ctx):
-  await ctx.channel.send("good night...")
+  await ctx.channel.send("initializing update and reboot...")
   sys.exit(0)
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
