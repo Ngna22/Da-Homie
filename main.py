@@ -10,7 +10,8 @@ bot = commands.Bot(prefix, intents=intents, activity=activity, status=None)
 
 
 # The Turn On/Off button default mode
-global spam_chat_mode
+global spam_chat_mode, spam_chat_chan
+spam_chat_mode = None
 spam_chat_mode = False
 
 @bot.event
@@ -33,13 +34,14 @@ async def upgrade(ctx):
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
 async def chatspam(interaction):
-  global spam_chat_mode
+  global spam_chat_mode, spam_chat_mode
   if spam_chat_mode == True:
     spam_chat_mode = False
     await interaction.response.send_message("chat spam mode is now off")
   elif spam_chat_mode == False:
     spam_chat_mode = True
-    await interaction.response.send_message("chat spam mode is now on")
+    spam_chat_mode = interaction.channel
+    await interaction.response.send_message(f"chat spam mode is now on for {spam_chat_mode.name}")
 
 @bot.event
 async def on_message(message):
