@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 1-23 * * *"
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TOKEN: ${{secrets.TOKEN}}
+    timeout-minutes: 59
+    steps:
+      - uses: actions/checkout@v3
+      - name: install requirements.txt
+        run: pip install -r requirements.txt
+      - name: entering Da Hood !
+        run: |
+          python3 main.py || exit
+          kill $!
