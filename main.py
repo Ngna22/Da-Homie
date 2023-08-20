@@ -4,7 +4,7 @@ import random, asyncio
 import requests
 from discord.ext import commands
 
-prefix = "Da " , "da "
+prefix = ["da " , "Da"]
 intents = discord.Intents.all()
 activity = discord.Game(name='ludo in da hood')
 bot = commands.Bot(prefix, intents=intents, activity=activity, status=None)
