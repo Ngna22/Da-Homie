@@ -77,11 +77,14 @@ async def commandname(ctx):
 
 @bot.command()
 async def say(ctx, channel_id, *, message):
+    
+    await ctx.message.delete()
+
     channel = bot.get_channel(int(channel_id))
     if channel:
         await channel.send(message)
     else:
-        await ctx.send("something wong")
+        await ctx.send("Something went wrong.")
 
 
 
