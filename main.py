@@ -75,18 +75,23 @@ async def commandname(ctx):
 
 
 
-@bot.command()
-async def say(ctx, channel_id, *, message):
-    if ctx.author.id == 707782594418442270:
-        channel = bot.get_channel(int(channel_id))
-        if channel:
-            await channel.send(message)
-            await ctx.message.delete()
-        else:
-            await ctx.send("something wong")
-    else:
-        await ctx.send("NUH UH!!!!")
+def is_owner(ctx):
+    return ctx.author.id == 707782594418442270
 
+@bot.command()
+@commands.check(is_owner)
+async def say(ctx, channel_id, *, message):
+    channel = bot.get_channel(int(channel_id))
+    if channel:
+        await channel.send(message)
+        await ctx.message.delete()
+    else:
+        await ctx.send("something wong")
+
+@say.error
+async def say_error(ctx, error):
+    if isinstance(error, commands.CheckFailure):
+        await ctx.send("Da Homie Is not Homing")
 
 
 
