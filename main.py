@@ -30,7 +30,7 @@ async def homie(ctx):
 
 @bot.command()
 async def upgrade(ctx):
-  await ctx.channel.send("initializing update and reboot...")
+  await ctx.channel.send("Da Homie is rehoming...")
   sys.exit(0)
 
 @bot.command()
