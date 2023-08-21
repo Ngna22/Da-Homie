@@ -66,7 +66,7 @@ async def on_message(message):
   await bot.process_commands(message)
 
 import random
-@bot.commad()
+@bot.command
 async def commandname(ctx):
   game = ["blah", "b2", "be"]
   therandomthing = random.choice(game)
