@@ -66,7 +66,7 @@ async def on_message(message):
   await bot.process_commands(message)
 
 import random
-@bot.command
+@bot.command()
 async def commandname(ctx):
   game = ["blah", "b2", "be"]
   therandomthing = random.choice(game)
@@ -75,7 +75,13 @@ async def commandname(ctx):
 
 
 
-
+bot.command()
+async def say(ctx, channel_id, *, message):
+    channel = bot.get_channel(int(channel_id))
+    if channel:
+        await channel.send(message)
+    else:
+        await ctx.send("something wong")
 
 
 
