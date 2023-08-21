@@ -75,7 +75,7 @@ async def commandname(ctx):
 
 
 
-bot.command()
+@bot.command()
 async def say(ctx, channel_id, *, message):
     channel = bot.get_channel(int(channel_id))
     if channel:
