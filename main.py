@@ -91,7 +91,7 @@ async def say(ctx, channel_id, *, message):
 @say.error
 async def say_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send("Da Homie Is not Homing")
+        await ctx.send("dA HoMIe iS nOT HoMInG")
 
 
 
