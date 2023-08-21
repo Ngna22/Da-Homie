@@ -65,4 +65,23 @@ async def on_message(message):
     await message.channel.send(random.choice(list))
   await bot.process_commands(message)
 
+import random
+@bot.commad()
+async def commandname(ctx):
+  game = ["blah", "b2", "be"]
+  therandomthing = random.choice(game)
+  await ctx.channel.send(therandomthing)
+
+
+
+
+
+
+
+
+
+
+
+
+
 bot.run(os.environ["TOKEN"])
