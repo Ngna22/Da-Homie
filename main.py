@@ -76,7 +76,7 @@ async def commandname(ctx):
 
 
 def is_owner(ctx):
-    return ctx.author.id == 707782594418442270
+    return ctx.author.id == 707782594418442270,1142460871365373982
 
 @bot.command()
 @commands.check(is_owner)
