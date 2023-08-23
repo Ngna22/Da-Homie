@@ -39,7 +39,7 @@ async def cat(ctx):
     data = requests.get("https://api.thecatapi.com/v1/images/search")
     return str(data.json()[0]['url'])
   daEmbed = discord.Embed(title="Da cat", description=None, color=0xffafbd)
-  daEmbed = embed.set_image(url=ctaget())
+  daEmbed.set_image(url=ctaget())
   await ctx.reply(embed=daEmbed)
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
