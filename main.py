@@ -40,7 +40,7 @@ async def cat(ctx):
     return str(data.json()[0]['url'])
   daEmbed = discord.Embed(title="Da cat", description=None, color=0xffafbd)
   daEmbed.set_image(url=ctaget())
-  daEmbed.set_footer(text=ctx.user.display_name,icon_url=ctx.author.avatar)
+  daEmbed.set_footer(text=ctx.author.display_name,icon_url=ctx.author.avatar)
   await ctx.reply(embed=daEmbed)
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
