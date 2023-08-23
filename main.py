@@ -34,15 +34,13 @@ async def upgrade(ctx):
   sys.exit(0)
 
 @bot.command()
-async def cat(ctx, spam:int = None):
+async def cat(ctx):
   def ctaget():
     data = requests.get("https://api.thecatapi.com/v1/images/search")
     return str(data.json()[0]['url'])
-  if spam and spam <= 10:
-    for n in range(spam):
-      await ctx.channel.send(content=ctaget())
-    return
-  await ctx.reply(content=ctaget())
+  daEmbed = discord.Embed(title="Da cat", description=None, color=0xffafbd)
+  daEmbed = embed.set_image(url=ctaget())
+  await ctx.reply(embed=daEmbed)
 
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
 async def chatspam(interaction):
