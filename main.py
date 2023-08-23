@@ -38,7 +38,7 @@ async def cat(ctx):
   def ctaget():
     data = requests.get("https://api.thecatapi.com/v1/images/search")
     return str(data.json()[0]['url'])
-  daEmbed = discord.Embed(title="Da cat", description=None, color=0xffafbd)
+  daEmbed = discord.Embed(title="Da cat", description=None, color=ctx.author.color)
   daEmbed.set_image(url=ctaget())
   daEmbed.set_footer(text=ctx.author.display_name,icon_url=ctx.author.avatar)
   await ctx.reply(embed=daEmbed)
