@@ -94,7 +94,9 @@ async def say_error(ctx, error):
 
 
 
-
+msg = message.content.lower()
+if "da homie" in msg:
+  await message.reply("Is here")
 
 
 
