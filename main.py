@@ -1,4 +1,4 @@
-import os, sys
+iimport os, sys
 import discord
 import random, asyncio
 import requests
@@ -24,9 +24,14 @@ async def on_ready():
   for guild in bot.guilds:
     print(f"in: {guild.name}\server id: {guild.id}")
 
-@bot.command()
-async def homie(ctx):
-  await ctx.channel.send("is here")
+@bot.event
+async def on_message(message: discord.Message):
+  if message.author == bot.user:
+    return
+  msg = message.content.lower()
+  if "da homie" in msg:
+    await message.reply("Is here")
+  await bot.process_commands(message)
 
 @bot.command()
 async def upgrade(ctx):
@@ -94,9 +99,7 @@ async def say_error(ctx, error):
 
 
 
-msg = message.content.lower()
-if "da homie" in msg:
-  await message.reply("Is here")
+
 
 
 
