@@ -24,14 +24,9 @@ async def on_ready():
   for guild in bot.guilds:
     print(f"in: {guild.name}\server id: {guild.id}")
 
-@bot.event
-async def on_message(message: discord.Message):
-  if message.author == bot.user:
-    return
-  msg = message.content.lower()
-  if "da homie" in msg:
-    await message.reply("Is here")
-  await bot.process_commands(message)
+@bot.command()
+async def homie(ctx):
+  await ctx.channel.send("is here")
 
 @bot.command()
 async def upgrade(ctx):
