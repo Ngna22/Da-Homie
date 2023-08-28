@@ -64,18 +64,11 @@ async def on_message(message):
     await message.channel.send(random.choice(list))
   await bot.process_commands(message)
 
-import random
-@bot.command()
-async def commandname(ctx):
-  game = ["blah", "b2", "be"]
-  therandomthing = random.choice(game)
-  await ctx.channel.send(therandomthing)
-
 
 
 
 def is_owner(ctx):
-    return ctx.author.id == 707782594418442270,1142460871365373982
+    return ctx.author.id == 707782594418442270,
 
 @bot.command()
 @commands.check(is_owner)
