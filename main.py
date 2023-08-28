@@ -1,4 +1,4 @@
-iimport os, sys
+import os, sys
 import discord
 import random, asyncio
 import requests
