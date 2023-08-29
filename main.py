@@ -94,12 +94,6 @@ async def say_error(ctx, error):
         await ctx.send("dA HoMIe iS nOT HoMInG")
 
 
-
-@bot.commands()
-async def dog(ctx):
-  def dogget():
-    data = requests.get("https://dog.ceo/dog-api/")
-    return str(data.json()[0]['url'])
     
 
 
