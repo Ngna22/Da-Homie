@@ -50,7 +50,7 @@ async def cat(ctx):
   daEmbed.set_image(url=ctaget())
   daEmbed.set_footer(text=ctx.author.display_name,icon_url=ctx.author.avatar)
   await ctx.reply(embed=daEmbed)
-
+  
 @bot.tree.command(name="chatspam", description="automated chat spam..!")
 async def chatspam(interaction):
   global spam_chat_mode, spam_chat_chan
@@ -92,6 +92,20 @@ async def say(ctx, channel_id, *, message):
 async def say_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
         await ctx.send("dA HoMIe iS nOT HoMInG")
+
+
+
+@bot.commands()
+async def dog(ctx):
+  def dogget():
+    data = requests.get("https://dog.ceo/dog-api/")
+    return str(data.json()[0]['url'])
+    
+
+
+
+
+
 
 
 
