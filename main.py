@@ -33,6 +33,14 @@ async def upgrade(ctx):
   await ctx.channel.send("Da Homie is rehoming...")
   sys.exit(0)
 
+
+@bot.command()
+async def sup (ctx):
+  await ctx.channel.send("just homing around...")
+
+
+
+
 @bot.command()
 async def cat(ctx):
   def ctaget():
