@@ -6,7 +6,7 @@ from discord.ext import commands
 
 prefix = ["da ","Da "]
 intents = discord.Intents.all()
-activity = discord.Game(name='ludo in da hood')
+activity = discord.Game(name='ludo in da hood','hehe')
 bot = commands.Bot(prefix, intents=intents, activity=activity, status=None)
 
 
