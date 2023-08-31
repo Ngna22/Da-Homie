@@ -76,8 +76,7 @@ async def on_message(message):
 
 
 def is_owner(ctx):
-    return ctx.author.id == 707782594418442270,
-
+    return ctx.author.id == 707782594418442270
 @bot.command()
 @commands.check(is_owner)
 async def say(ctx, channel_id, *, message):
