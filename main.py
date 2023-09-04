@@ -95,11 +95,9 @@ async def say_error(ctx, error):
 
 
 
-
-
 sent_image_urls = set()
 
-@bot.command(name="find", aliases=["search"])
+@bot.command(name="ser", aliases=["search"])
 async def search_image(ctx, *, search_query: str):
     search_query_encoded = urllib.parse.quote(search_query)
     search_url = f"https://www.google.com/search?q={search_query_encoded}&tbm=isch&safe=active"
@@ -115,13 +113,12 @@ async def search_image(ctx, *, search_query: str):
         sent_image_urls.add(selected_image_url)
 
         search_query_decoded = urllib.parse.unquote(search_query)
-        embed = discord.Embed(color=985F41, title=f"Da Homie found: {search_query_decoded}")
+        embed = discord.Embed(color=0x9FC6F6, title=f"You searched for: {search_query_decoded}")
         embed.set_image(url=selected_image_url)
 
         await ctx.send(embed=embed)
     else:
-        await ctx.send("dA HOmiE iS nOT HoMIng")
-        
+        await ctx.send("wtf were you searching☠️.")
 
 
 
