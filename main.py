@@ -38,6 +38,12 @@ async def upgrade(ctx):
 async def sup (ctx):
   await ctx.channel.send("just homing around...")
 
+@bot.command()
+async def who (ctx):
+  await ctx.channel.send("im an immature leave me alone...")
+
+
+
 
 
 
