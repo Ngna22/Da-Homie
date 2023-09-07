@@ -46,6 +46,13 @@ async def who (ctx):
 
 
 
+@bot.command()
+async def mosie (ctx):
+  await ctx.channel.send("https://cdn.discordapp.com/attachments/1148628305113784412/1149362458008502272/Picsart_23-07-24_01-36-04-465.jpg")
+
+
+
+
 
 @bot.command()
 async def cat(ctx):
